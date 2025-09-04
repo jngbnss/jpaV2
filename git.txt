@@ -8,10 +8,10 @@ git push -u origin main
 git pull origin main
 
 git add .
-git commit -m "초기 설정 완료"
+git commit -m "회원 엔티티"
 git push
 
 09-04 4:33 초기 설정 완료
 2. 도메인 분석 설계 : 회원 엔티티
-
+4:49 회원 엔티티 강의 보면서 보완하고 모르는 부분 정리하기
 
