@@ -8,8 +8,10 @@ git push -u origin main
 git pull origin main
 
 git add .
-git commit -m "메시지 작성"
+git commit -m "초기 설정 완료"
 git push
 
+09-04 4:33 초기 설정 완료
+2. 도메인 분석 설계 : 회원 엔티티
 
 
