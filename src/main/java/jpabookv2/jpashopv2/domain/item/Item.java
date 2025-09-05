@@ -2,6 +2,7 @@ package jpabookv2.jpashopv2.domain.item;
 
 import jakarta.persistence.*;
 import jpabookv2.jpashopv2.domain.Category;
+import jpabookv2.jpashopv2.exception.NotEnoughStockException;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -34,7 +35,7 @@ public abstract class Item {
     public void removeStock(int quantity){
         int restStock = this.stockQuantity-quantity;
         if(restStock<0){
-            throw new NorEnoughException("need more sotck");
+            throw new NotEnoughStockException("need more stock");
         }
         this.stockQuantity = restStock;
     }
