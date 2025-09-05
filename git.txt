@@ -8,7 +8,7 @@ git push -u origin main
 git pull origin main
 
 git add .
-git commit -m "09/05 9:56 주문 도메인 개발 완료 동적 쿼리 전까지"
+git commit -m "09/05 11:09 웹 계층 개발"
 git push
 
 09-04 4:33 초기 설정 완료
@@ -29,3 +29,6 @@ jdbc:h2:tcp://localhost/~/jpashop
 
 09/05 8:42 주문 도메인 개발
 09/05 9:56 주문 도메인 개발 완료 동적 쿼리 전까지
+
+09/05 10:12 동적 쿼리는 완료 홈 화면과 레이아웃 시작
+09/05 11:09 웹 계층 개발
