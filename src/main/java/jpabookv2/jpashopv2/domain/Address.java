@@ -1,5 +1,10 @@
 package jpabookv2.jpashopv2.domain;
 
+import jakarta.persistence.Embeddable;
+import lombok.Getter;
+
+@Embeddable //내장타입
+@Getter
 public class Address {
     private String city;
     private String street;

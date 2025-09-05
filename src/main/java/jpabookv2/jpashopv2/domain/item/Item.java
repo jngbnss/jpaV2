@@ -1,7 +1,7 @@
 package jpabookv2.jpashopv2.domain.item;
 
 import jakarta.persistence.*;
-import jdk.jfr.Category;
+import jpabookv2.jpashopv2.domain.Category;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE) // 상속관계 매핑
 @DiscriminatorColumn(name = "dtype")
 @Getter@Setter
 public abstract class Item {
@@ -22,6 +22,8 @@ public abstract class Item {
     private int price;
     private int stockQuantity;
 
+
+    @ManyToMany(mappedBy = "items")
     private List<Category> categories = new ArrayList<>();
 
 

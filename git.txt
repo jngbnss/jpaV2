@@ -8,7 +8,7 @@ git push -u origin main
 git pull origin main
 
 git add .
-git commit -m "5:04 멤버 컨트롤러까지 진행함"
+git commit -m "도메인 분석 설계"
 git push
 
 09-04 4:33 초기 설정 완료
@@ -18,3 +18,6 @@ git push
 4:52 웹 계층 개발 복붙이나 하고있을까
 5:04 멤버 컨트롤러까지 진행함
 
+jdbc:h2:tcp://localhost/~/jpashop
+
+09 05 12:52
