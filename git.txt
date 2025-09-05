@@ -8,7 +8,7 @@ git push -u origin main
 git pull origin main
 
 git add .
-git commit -m "2.도메인 분석 설계 완료"
+git commit -m "09/05 03:34 회원 도메인 개발 완료"
 git push
 
 09-04 4:33 초기 설정 완료
@@ -22,3 +22,6 @@ jdbc:h2:tcp://localhost/~/jpashop
 
 09/05 12:52
 09/05 1:21 2.도메인 분석 설계 완료
+
+09/05 3:15 회원 도메인 개발 시작
+09/05 03:34 회원 도메인 개발 완료
