@@ -15,56 +15,56 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class MemberApiController {
     private final MemberService memberService;
-    @GetMapping("/api/v1/member")
-    public List<Member>membersV1(){
-        return memberService.findMembers();
-    }
 
-    @GetMapping("/api/v2/member")
-    public Result membersV2(){
-        List<Member> findMembers = memberService.findMembers();
 
-        List<MemberDto>collect = findMembers.stream().map(m->new MemberDto(m.getName())).collect(Collectors.toList());
-        return new Result(collect);
-    }
-    @Data
-    @AllArgsConstructor
-    static class Result<T>{
-        private T data;
-    }
 
-    @Data
-    @AllArgsConstructor
-    static class MemberDto{
-        private String name;
-    }
 
-    @PostMapping("/api/v1/member")
+    //첫번째 버전의 회원 등록 api
+    @PostMapping("/api/v1/members")//s인가?
     public CreateMemberResponse saveMemberV1(@RequestBody @Valid Member member){
-        Long id = memberService.join(member);
+        Long id = memberService.join(member);//조인하면 아이디 주니까
         return new CreateMemberResponse(id);
     }
-    @Data
-    static class CreateMemberRequest{
-        private String name;
-    }
-
+    // 1 응답 값
     @Data
     static class CreateMemberResponse{
         private Long id;
-        public CreateMemberResponse(Long id){
+        public CreateMemberResponse(Long id){ //생성자
             this.id = id;
         }
     }
+    // null도 들어감
+    // v1엔티티를 request body에 직접 매핑
+    // 문제점
+    //
+    // 엔티티에 프레젠테이션 계층을 위한 로직이 추가된다.
+    //
+    // 엔티티에 API 검증을 위한 로직이 들어간다.(@NotEmpty등등)
+    //
+    // 실무에서는 회원 엔티티를 위한 API가 다양하게 만들어지는데,
+    // 한 엔티티에 각각의 API를 위한 모든 요청 요구 사항을 담기는 어렵다.
+    //
+    // 엔티티가 변경되면 API 스펙이 변한다.
+    // name -> username
+    // 결론 API 요청 스펙에 맞추어 별도의 DTO를 파라미터로 받는다.
 
-    @PostMapping("/api/v2/member")
-    public CreateMemberResponse saveMemberV2(@RequestBody @Valid CreateMemberRequest request){
+    // 엔티티를 파라미터로 받지말고, 외부에 노출하지 말기
+    /// ////////
+    //v2 dto로 받기
+    @PostMapping("/api/v2/members")
+    public CreateMemberResponse saveMemberV2(@RequestBody @Valid
+                                                 CreateMemberRequest request){
         Member member = new Member();
         member.setName(request.getName());
 
         Long id = memberService.join(member);
         return new CreateMemberResponse(id);
 
+    }
+
+    @Data
+    static class CreateMemberRequest{
+        private String name;
     }
 
     @PutMapping("/api/v2/members/{id}")
@@ -83,6 +83,31 @@ public class MemberApiController {
     @AllArgsConstructor
     static class UpdateMemberResponse{
         private Long id;
+        private String name;
+    }
+
+    @GetMapping("/api/v1/member")
+    public List<Member>membersV1(){
+        return memberService.findMembers();
+    }
+
+    @GetMapping("/api/v2/member")
+    public Result membersV2(){
+        List<Member> findMembers = memberService.findMembers();
+
+        List<MemberDto>collect = findMembers.stream().map(m->new MemberDto(m.getName())).collect(Collectors.toList());
+        return new Result(collect);
+    }
+
+    @Data
+    @AllArgsConstructor
+    static class Result<T>{
+        private T data;
+    }
+
+    @Data
+    @AllArgsConstructor
+    static class MemberDto{
         private String name;
     }
 
