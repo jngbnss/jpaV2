@@ -89,23 +89,24 @@ public class MemberApiController {
         private Long id;
         private String name;
     }
-//
-    @GetMapping("/api/v1/member")
+    // 예상 이것도 dto없이 엔티티에서 가져오나?
+    @GetMapping("/api/v1/members")
     public List<Member>membersV1(){
         return memberService.findMembers();
     }
 
-    @GetMapping("/api/v2/member")
+    @GetMapping("/api/v2/members")
     public Result membersV2(){
         List<Member> findMembers = memberService.findMembers();
 
-        List<MemberDto>collect = findMembers.stream().map(m->new MemberDto(m.getName())).collect(Collectors.toList());
-        return new Result(collect);
+        List<MemberDto>collect = findMembers.stream().map(m->new MemberDto(m.getName(),m.getAddress().getCity())).collect(Collectors.toList());
+        return new Result(collect.size(),collect);
     }
 
     @Data
     @AllArgsConstructor
     static class Result<T>{
+        private int count;
         private T data;
     }
 
@@ -113,6 +114,7 @@ public class MemberApiController {
     @AllArgsConstructor
     static class MemberDto{
         private String name;
+        private String city;
     }
 
 
