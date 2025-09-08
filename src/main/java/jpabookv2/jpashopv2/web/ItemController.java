@@ -90,4 +90,6 @@ public class ItemController {
                 form.getStockQuantity());
         return "redirect:/items";
     }
+
+    // merge쓰면 빠진 부분 null이 될수있으니까 변경감지를 쓰고 메서드를 활용하기
 }
