@@ -8,7 +8,7 @@ git push -u origin main
 git pull origin main
 
 git add .
-git commit -m "09/09 6:55 회원 등록 API dto를 만들어서"
+git commit -m "09/09 7:31 섹션2 API 개발 기본 회원 수정 API"
 git push
 
 09-04 4:33 초기 설정 완료
@@ -40,3 +40,4 @@ jdbc:h2:tcp://localhost/~/jpashop
 내일 강의듣고 4,5,6은 내일 합시다.
 
 09/09 6:55 회원 등록 API dto를 만들어서
+09/09 7:31 섹션2 API 개발 기본 회원 수정 API

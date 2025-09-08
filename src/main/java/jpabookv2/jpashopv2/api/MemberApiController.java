@@ -67,25 +67,29 @@ public class MemberApiController {
         private String name;
     }
 
+    // 회원 수정 api
     @PutMapping("/api/v2/members/{id}")
     public UpdateMemberResponse updatememberV2(@PathVariable("id") Long id,
                                                @RequestBody @Valid UpdateMemberRequest request){
         memberService.update(id,request.getName());
+        // 변경 감지
         Member findMember = memberService.findOne(id);
         return new UpdateMemberResponse(findMember.getId(),findMember.getName());
     }
 
+    // 업데이트 용 dto
     @Data
     static class UpdateMemberRequest{
         private String name;
     }
+    // 업데이트 용 리스폰스
     @Data
-    @AllArgsConstructor
+    @AllArgsConstructor // 생성자
     static class UpdateMemberResponse{
         private Long id;
         private String name;
     }
-
+//
     @GetMapping("/api/v1/member")
     public List<Member>membersV1(){
         return memberService.findMembers();

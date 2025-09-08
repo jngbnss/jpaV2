@@ -44,7 +44,7 @@ public class MemberService {
 
     @Transactional
     public void update(Long id, String name) {
-        Member member = memberRepository.findOne(id);
-        member.setName(name);
+        Member member = memberRepository.findOne(id);//영속성 올리고
+        member.setName(name);//변경감지
     }
 }
