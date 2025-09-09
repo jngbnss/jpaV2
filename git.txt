@@ -8,7 +8,7 @@ git push -u origin main
 git pull origin main
 
 git add .
-git commit -m "09/09 11:57 페치조인으로 n+1 문제 해결"
+git commit -m "09/09 3:26 1 dto 2 fetch join 3 dto참조 4 jdbc"
 git push
 
 09-04 4:33 초기 설정 완료
@@ -50,3 +50,5 @@ jdbc:h2:tcp://localhost/~/jpashop
 09/09 10:45 간단한 주문조회2 엔티티를 dto로 변환
 09/09 11:09 dto로 변환 후 N+1문제 발생
 09/09 11:57 페치조인으로 n+1 문제 해결
+09/09 3:20 4번까지 완료
+09/09 3:26 1 dto 2 fetch join 3 dto참조 4 jdbc

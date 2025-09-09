@@ -95,5 +95,6 @@ public class OrderSimpleApiController {
     public List<OrderSimpleQueryDto>ordersV4(){
         return orderSimpleQueryRepository.findOrderDtos();
     }
-
+    // 3보다 덜 퍼올려서 괜찮은데 확장성이 떨어짐
+    // 그렇게 차이 나지는 않음 일단 패치조인쓰는게 어때
 }
