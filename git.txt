@@ -8,7 +8,7 @@ git push -u origin main
 git pull origin main
 
 git add .
-git commit -m "09/09 8:21 dbInit까지 완료 이제 지연로딩과 조회 성능 최적화 강의 보고 이후 타이핑 진행하기"
+git commit -m "09/09 9:02 API 개발 고급 - 컬렉션 조회 최적화 복붙"
 git push
 
 09-04 4:33 초기 설정 완료
@@ -42,3 +42,6 @@ jdbc:h2:tcp://localhost/~/jpashop
 09/09 6:55 회원 등록 API dto를 만들어서
 09/09 7:31 섹션2 API 개발 기본 회원 수정 API
 09/09 8:21 dbInit까지 완료 이제 지연로딩과 조회 성능 최적화 강의 보고 이후 타이핑 진행하기
+
+09/09 8:35 API 개발 고급 - 컬렉션 조회 최적화
+09/09 9:02 API 개발 고급 - 컬렉션 조회 최적화 복붙
