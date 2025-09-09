@@ -88,7 +88,11 @@ public class OrderRepository {
 
     public List<Order> findAllWithMemberDelivery() {
         return em.createQuery(
-                "select o from Order o join fetch o.member m join fetch o.delivery d", Order.class).getResultList();
+                "select o from Order o " +
+                        "join fetch o.member m " +
+                        "join fetch o.delivery d", Order.class)
+                .getResultList();
+        // 한방쿼리 겟리절트리스트는 뭐지?
 
     }
 

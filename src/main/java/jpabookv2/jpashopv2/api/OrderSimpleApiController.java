@@ -85,8 +85,12 @@ public class OrderSimpleApiController {
         List<SimpleOrderDto> result = orders.stream().map(o->new SimpleOrderDto(o)).collect(toList());
         return result;
     }
+    // 페치 조인을 하면 한번에 콱잡아서 n+1문제 해결함
 
+    // 더 최적화
+    // jpa에서 dto로 바로 조회
     private final OrderSimpleQueryRepository orderSimpleQueryRepository;
+
     @GetMapping("/api/v4/simple-orders")
     public List<OrderSimpleQueryDto>ordersV4(){
         return orderSimpleQueryRepository.findOrderDtos();
