@@ -17,6 +17,7 @@ public class Jpashopv2Application {
 //		return new Hibernate5JakartaModule();
 //	}
 	// 여기 뭐 어떻게 하라는거지?
+	//널처리해주는거같은데
 
 	@Bean
 	Hibernate5JakartaModule hibernate5Module() {
@@ -25,5 +26,6 @@ public class Jpashopv2Application {
 		hibernate5Module.configure(Hibernate5JakartaModule.Feature.FORCE_LAZY_LOADING, true);
 		return hibernate5Module;
 	}
+	// 이건 강제로 데이터 나오게 강제로 레이지 로딩 해버린거
 
 }
